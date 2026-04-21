@@ -1,5 +1,6 @@
 ---
 name: ads-playbook
+version: 1.1.0
 description: |
   온라인 광고 인하우스 플레이북. 8플랫폼×10목적 진단·세팅·튜닝·용어. 시그널·러닝·크리에이티브·측정·안티패턴 처방.
   P1: 광고플레이북, ads playbook, 퍼포먼스마케팅, 메타광고, 구글광고, 틱톡광고, 네이버광고, 카카오광고, 카카오모먼트, 링크드인광고, PMax, ASA, Advantage+, ASC, UAC, Smart+, 비즈보드, 러닝페이즈, CAPI, SKAN, ROAS, CPA, 앱광고, 리타겟팅, 리드광고, 이커머스광고, 광고운영, 광고튜닝.
@@ -89,17 +90,7 @@ description: |
 
 ### ② 플랫폼 조합 룰 (한국 디폴트)
 
-| 목적 | 1순위 | 2순위 | 보조 |
-|------|-------|-------|------|
-| 앱설치광고 | 메타광고 ASC / 구글애즈 UAC / ASA | 틱톡광고 Smart+ | 네이버광고 GFA |
-| 앱가입광고 | 메타광고 App Promo | 구글애즈 UAC signup | 틱톡광고 |
-| 이커머스광고 | 메타광고 ASC Shopping | 구글애즈 PMax | 네이버 쇼핑검색·카카오모먼트 비즈보드 |
-| 리드광고 B2B | 링크드인광고 Lead Gen Form | 구글애즈 Search | 메타광고 Instant Form |
-| 리드광고 B2C | 메타광고 Instant Form | 네이버광고 GFA·파워컨텐츠 | 카카오광고 비즈보드 |
-| 브랜드광고 | YouTube·틱톡광고 TopView | 메타광고 Reach | 네이버 브랜드검색 |
-| 리타겟팅 | 메타광고 CA 리타겟 | 카카오모먼트 채널 메시지 | 구글애즈 App Engage |
-| 오프라인 | 네이버 플레이스 | 구글애즈 PMax Local | 메타광고 Store Traffic |
-
+목적별 1순위·2순위·보조 플랫폼 매트릭스 → `→ references/objective_matrix.md`
 플랫폼 상세: `→ references/platform_meta.md` · `platform_google.md` · `platform_tiktok_asa.md` · `platform_naver_kakao.md` · `platform_x_linkedin.md`
 
 ### ③ 캠페인 타입·입찰 핵심 (광고최적화 출발점)
@@ -131,6 +122,25 @@ description: |
 
 ---
 
+## §4.5 조건부 로딩 매트릭스 (references 18개 과부하 방지)
+
+허브는 분기만. 스포크는 **질문 맥락에 맞는 것만** 로드. 전량 로드 금지.
+
+| 질문 맥락 | 로드 1차 | 로드 2차 (필요시) | 로드 금지 |
+|-----------|----------|--------------------|-----------|
+| 목적 불명 | `objective_matrix.md` | 해당 objective 파일 1개 | 플랫폼 파일 전량 |
+| 플랫폼 1개 지정 | 해당 `platform_*.md` 1개 | `measurement.md` | 다른 플랫폼 파일 |
+| 측정·CAPI·SKAN | `measurement.md` | `glossary.md` | objective/platform 파일 |
+| 크리에이티브 | `creative.md` | `antipatterns.md` | 나머지 전량 |
+| 러닝·입찰·튜닝 | `tuning_playbook.md` | `measurement.md` | objective 파일 전량 |
+| 런칭 직전 | `launch_checklist.md` | `measurement.md` | — |
+| 용어 질문 | `glossary.md` | — | 나머지 전량 |
+| 최신 정책 확인 | `latest_2026q2.md` | — | — |
+
+**원칙:** 1차 로드 후 부족할 때만 2차. 동시 3개+ 로드 = 토큰 폭식 → 허브 분기 재점검.
+
+---
+
 ## §5 공통 참조
 
 | 주제 | 포인터 |
@@ -155,3 +165,17 @@ description: |
 | B2B 리드광고에 LinkedIn 누락 | 링크드인광고 Lead Gen Form + Accelerate 최우선 |
 | 리서치 인용시 인라인 URL | 본문은 포인터만, URL은 references 각 파일 |
 | 최신 변경 미반영 | 2026-04 만료 시 `→ references/latest_2026q2.md` 업데이트 알림 |
+
+---
+
+## Self-Check
+
+스킬 수정 후 검증:
+
+```bash
+python3 scripts/validate.py ./ads-playbook/
+# grade: PASS → 통과. FAIL → errors 보고 후 skill-builder 재발동
+```
+
+검증 항목: SKILL.md 크기·필수 섹션·스포크 파일·evals 케이스·version 필드·한국 디폴트 보존.
+evals: `evals/cases.json` — 5개 회귀 케이스 (진단·설계·운영·용어·B2B).
