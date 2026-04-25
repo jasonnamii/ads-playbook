@@ -253,6 +253,19 @@ description: |
 
 ---
 
+
+## §INV NO_WORK_LABEL (산출물·대화 본질 보호)
+
+| 항목 | 정의 |
+|------|------|
+| RULE | 산출물·대화 = 인간 언어. 작업 라벨 ZERO. (1만 페이지 1단어 = FAIL) |
+| 판정 | "이 단어, 이 대화 밖 사람이 사전 없이 읽을 수 있나?" NO → 작업 라벨 → 금지 |
+| ALLOW | ROAS·CPA·CAPI·tROAS·tCPA·SKAN·PMax·ASA·ASC·UAC·CTR·CVR·CPC·CPM·LTV·CAC·MMP·MMM |
+| CONVERT | 라벨 발견 → 실명·평문 풀어쓰기. 예) "러닝페이즈·시그널·8플랫폼×10목적" → 실제 단계·플랫폼·목적 명 / "Smart+·Advantage+" → 결과만 노출 |
+| SELF_CHECK | 튜닝 처방 출력 직전에서 자체 스캔. 1개라도 발견 = 차단·재작성. paper-engine cascade 경유 시 INV 13 자동 적용 |
+
+---
+
 ## 🚨 MUST cascade → paper-engine (절대규칙)
 
 **이 스킬의 모든 리포트·산출물 = paper-engine 허브 MUST 경유.** 단독 md/html 출력 = FAIL.
