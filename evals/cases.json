@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0",
+  "skill": "ads-playbook",
+  "description": "ads-playbook 발동·라우팅·처방 정합성 회귀 테스트. skill-builder 수정 전후 비교 기준.",
+  "cases": [
+    {
+      "id": "C1-diagnose-meta-cpa-spike",
+      "mode": "M1 진단",
+      "input": "메타 광고 CPA가 갑자기 2배 올랐는데 왜 그런지 진단해줘",
+      "expected": {
+        "route": "§2 M1 진단 흐름",
+        "must_ask": ["캠페인 타입", "광고목적", "기간", "최근 변경"],
+        "must_reference": ["references/measurement.md", "references/tuning_playbook.md"],
+        "must_check": ["러닝페이즈", "CAPI 매칭율", "크리에이티브 피로도"],
+        "forbidden": ["편집 즉시 제안 (러닝 확인 전)", "크리에이티브 단독 진단"]
+      }
+    },
+    {
+      "id": "C2-setup-ecommerce-launch",
+      "mode": "M2 설계",
+      "input": "D2C 쇼핑몰 신규 런칭하는데 광고 세팅 어떻게 해야 해?",
+      "expected": {
+        "route": "§3 M2 설계 흐름",
+        "must_confirm_first": "광고목적 (이커머스광고)",
+        "must_propose_platforms": ["메타광고 ASC Shopping", "구글애즈 PMax", "네이버 쇼핑검색"],
+        "must_reference": ["references/objective_commerce.md", "references/measurement.md", "references/launch_checklist.md"],
+        "must_include_korean_default": true,
+        "forbidden": ["플랫폼부터 논의", "목적 없이 입찰전략 제안"]
+      }
+    },
+    {
+      "id": "C3-tuning-learning-stuck",
+      "mode": "M3 운영",
+      "input": "메타 ASC 캠페인 러닝페이즈 못 빠져나오고 있어 어떻게 튜닝해?",
+      "expected": {
+        "route": "§4 M3 운영 흐름",
+        "must_reference": ["references/tuning_playbook.md"],
+        "must_include": ["50 conv/7d 기준", "편집 금지 권고", "신규 ad set 제안"],
+        "forbidden": ["편집으로 해결 제안 (러닝 리셋 유발)"]
+      }
+    },
+    {
+      "id": "C4-glossary-skan",
+      "mode": "M4 용어",
+      "input": "SKAN이 뭐야?",
+      "expected": {
+        "route": "references/glossary.md",
+        "must_include": ["SKAdNetwork", "iOS", "앱광고 측정"],
+        "forbidden": ["전체 캠페인 설계 제안"]
+      }
+    },
+    {
+      "id": "C5-b2b-lead-gen",
+      "mode": "M2 설계",
+      "input": "B2B SaaS 리드 생성 광고 돌리려는데 어디서 시작?",
+      "expected": {
+        "route": "§3 M2 설계 흐름",
+        "must_propose_platforms_1st": "링크드인광고 Lead Gen Form",
+        "must_reference": ["references/objective_lead.md", "references/platform_x_linkedin.md"],
+        "must_include_terminology": ["CPL(리드당 비용)", "MQL"],
+        "forbidden": ["링크드인 누락"]
+      }
+    }
+  ],
+  "validation_notes": {
+    "pass_criteria": "expected.must_* 항목 모두 포함, forbidden 항목 0개",
+    "regression_threshold": "기존 PASS 케이스 FAIL로 전환 시 수정 롤백 검토",
+    "update_trigger": "플랫폼 정책 변경·러닝페이즈 기준 변동·한국 디폴트 변경 시"
+  }
+}
