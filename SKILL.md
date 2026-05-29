@@ -1,300 +1,125 @@
 ---
 name: ads-playbook
-version: 1.1.0
 description: |
-  온라인 광고 인하우스 플레이북. 8플랫폼×10목적 진단·세팅·튜닝·용어. 시그널·러닝·크리에이티브·측정·안티패턴 처방.
-  P1: 광고플레이북, ads playbook, 퍼포먼스마케팅, 메타광고, 구글광고, 틱톡광고, 네이버광고, 카카오광고, 카카오모먼트, 링크드인광고, PMax, ASA, Advantage+, ASC, UAC, Smart+, 비즈보드, 러닝페이즈, CAPI, SKAN, ROAS, CPA, 앱광고, 리타겟팅, 리드광고, 이커머스광고, 광고운영, 광고튜닝.
-  P2: 세팅해줘, 진단해줘, 튜닝해줘, optimize.
-  P3: paid social, paid search, tROAS, tCPA, incrementality.
-  P5: .md로.
-  NOT: IMC(→brand-campaign), 카피(→copywriting-engine), 사업전략(→biz-skill), 재무(→financial-model), KPI(→metric-tracker).
+  온라인 광고 운영 플레이북. 목표·채널·측정·크리에이티브·튜닝을 연결해 캠페인 실행안을 만든다. 트리거: 광고운영, 퍼포먼스광고, ads playbook, ROAS, CAC, 매체믹스, 광고 짜줘, 튜닝해줘, 점검해줘, optimize ads. NOT: 미디어 집행 실무(→media-buying), 카피(→copywriting-skill), 브랜드 캠페인(→brand-campaign).
 ---
 
-# ads-playbook
+# Ads Playbook
 
-온라인 광고 인하우스 마케터를 위한 광고플레이북. 8플랫폼(메타광고·구글광고·틱톡광고·네이버광고·카카오광고·카카오모먼트·링크드인광고·ASA) × 10광고목적 광고운영. 시그널·러닝·크리에이티브·측정·안티패턴 일관 처방. 퍼포먼스마케팅 인하우스 실전.
+## §0 원칙
 
----
 
-## §0 핵심 원칙 (절대 규칙 7개)
+## Skill Boundaries
 
-| # | 규칙 | 이유 |
-|---|------|------|
-| 1 | **목적 선정 먼저** — 10광고목적 중 무엇인지 확정 후 플랫폼·크리에이티브·입찰 논의 | 목적 오선정 = 실패 1순위 |
-| 2 | **러닝페이즈 편집 금지** — Meta 50 conv/7d, Google PMax 50~100 conv, TikTok Smart+ 50 conv/7d 이전 편집 시 시그널 리셋 | 편집 = 7일 재학습 = 예산 낭비 |
-| 3 | **시그널 복구 3축 동시** — CAPI(서버측) + Consent Mode v2(동의) + 1st party data. 한 축만 = 30~70% 유실 | iOS14·Chrome·DMA 이후 클라이언트 추적 불가 |
-| 4 | **크리에이티브가 최대 레버** — CTR 변동의 56%가 크리에이티브 요인. 2~4주 주기 신규 자산 3~5개 투입 우선 | 타겟·입찰 최적화 < 크리에이티브 교체 |
-| 5 | **자동화 Co-Pilot** — Advantage+·PMax·Smart+는 신뢰하되 가드레일(예산캡·CPA·브랜드 제외·시그널) 필수 | 가드레일 없는 자동화 = 카니발라이제이션 |
-| 6 | **초보자용 용어 주석 필수** — 약어·기술용어 첫 등장 시 인라인 괄호 주석 | 인하우스 신입·비마케터 임원 대상 |
-| 7 | **한국 디폴트** — 플랫폼 미지정 시 네이버광고+카카오광고+메타광고+구글광고 4개 우선 검토 | 한국 인하우스 마케터 대상 |
+- **하는 것** — "온라인 광고 운영 플레이북.
+- **안 하는 것** — 미디어 집행 실무(→media-buying), 카피(→copywriting-skill), 브랜드 캠페인(→brand-campaign)."
 
----
+한국 디폴트: 별도 지정이 없으면 한국 시장, 원화, 네이버·카카오·메타·구글 혼합 집행을 기본으로 본다.
 
-## §1 4모드 라우터
+1. 목표를 먼저 고른다: 앱설치, 리드, 커머스, 브랜드.
+2. 측정 기준을 먼저 잠근다: ROAS, CAC, CPA, LTV, 리텐션.
+3. 채널 추천은 예산, 기간, 타깃, 소재 역량을 함께 본다.
+4. 최신 플랫폼 변경은 `references/latest_2026q2.md`를 확인한다.
 
-| 모드 | 트리거 | 진입 | 산출 |
-|------|--------|------|------|
-| **M1 진단** | "왜 성과 떨어졌어", "CPA 급등", "광고진단", 러닝 미탈출 | §2 | 진단 리포트 |
-| **M2 설계** | "광고세팅", "런칭", "신규 캠페인", "어떤 플랫폼?" | §3 | 세팅 가이드 |
-| **M3 운영** | "광고튜닝", "광고최적화", "예산 조정", "시즈널" | §4 | 운영 플레이북 |
-| **M4 용어** | "CPA가 뭐야", "SKAN 설명", "광고용어" | `→ references/glossary.md` | 용어 설명 |
+## When to Use
 
----
+- 사용자가 "광고 짜줘", "튜닝해줘", "점검해줘", "optimize ads." 같은 표현으로 발동
+- 도메인 작업이 필요한 시점
+- **안 쓸 때** — 미디어 집행 실무(→media-buying), 카피(→copywriting-skill), 브랜드 캠페인(→brand-campaign)."
 
-## §2 M1 진단 흐름
 
-```
-① 증상 수집 → ② 시그널·러닝 상태 → ③ 4축 진단 → ④ 처방
-```
+## Prerequisites
 
-### ① 증상 수집 (핑퐁 필수)
-플랫폼·캠페인 타입·광고목적·증상(CPA 급등·노출 급감·러닝 미탈출 등)·기간·최근 변경.
+| # | 체크 | 미충족 시 |
+|---|------|-----------|
+| 1 | 대상·입력 명확 (스킬 발동 의도 확인) | 1줄 확인 후 진입 |
+| 2 | references/ 폴더 접근 가능 | inline fallback |
+| 3 | scripts/ 실행 권한 | 권한 보정 후 재시도 |
 
-### ② 시그널·러닝 상태 (가장 흔한 근본원인)
 
-| 체크 | 기준 | 실패 시 |
-|------|------|---------|
-| CAPI/EC 구현 | Meta 매칭율 ≥70%, Google EC 적용 | `→ references/measurement.md` |
-| Consent Mode v2 | EU/KR 동의율 확인 | `→ references/measurement.md` |
-| 러닝페이즈 | Meta 50 conv/7d, Google PMax 학습기간 | `→ references/tuning_playbook.md` |
-| 픽셀 중복·iOS 도메인·AEM | 도메인 1개·이벤트 8개 | `→ references/measurement.md` |
+## §1 입력
 
-### ③ 4축 진단 매트릭스
+| 항목 | 필요 내용 |
+|---|---|
+| Objective | 앱·커머스·리드·브랜드 |
+| Budget | 일·월 예산 |
+| Target | 지역·연령·관심사·고객 단계 |
+| Creative | 영상·이미지·랜딩·카피 보유 여부 |
+| Measurement | 전환 이벤트와 어트리뷰션 기준 |
 
-| 축 | 질문 | 참조 |
-|----|------|------|
-| 시그널 | 서버측·동의·1st party 중 빠진 게? | `→ references/measurement.md` |
-| 러닝·입찰 | 편집 빈도·예산 급변·입찰전략 오선택? | `→ references/tuning_playbook.md` |
-| 크리에이티브 | 동일 자산 14일+·Hook Rate <25%·UGC 0개? | `→ references/creative.md` |
-| 타겟·구조 | 과도한 세그먼트·중복·PMax가 Search 잡아먹음? | `→ references/antipatterns.md` |
+## §2 라우팅
 
-### ④ 처방 출력 (아래 템플릿으로 채울 것)
-증상 → 근본원인 → 즉시조치(≤7일) → 구조조치(≥2주) → 예상 회복 지표.
+- 목표별 선택: `references/objective_matrix.md`
+- 앱: `references/objective_app.md`
+- 커머스: `references/objective_commerce.md`
+- 리드: `references/objective_lead.md`
+- 브랜드: `references/objective_brand.md`
 
----
+## §3 채널
 
-## §3 M2 설계 흐름
+- Meta: `references/platform_meta.md`
+- Google: `references/platform_google.md`
+- TikTok/ASA: `references/platform_tiktok_asa.md`
+- Naver/Kakao: `references/platform_naver_kakao.md`
+- X/LinkedIn: `references/platform_x_linkedin.md`
 
-```
-① 목적 확정 → ② 플랫폼 조합 → ③ 캠페인 타입·입찰 → ④ 시그널 세팅 → ⑤ 크리에이티브 → ⑥ 런칭 체크리스트
-```
+## §4 실행
 
-### ① 10목적 확정
-`→ references/objective_matrix.md`
+1. 캠페인 목표와 KPI를 확정한다.
+2. 예산을 테스트, 확장, 방어로 나눈다.
+3. 소재는 후킹, 증거, 전환 유도 버전으로 최소 3종 만든다.
+4. 런칭 전 `references/launch_checklist.md`를 확인한다.
 
-### ② 플랫폼 조합 룰 (한국 디폴트)
-목적별 1순위·2순위·보조 플랫폼 매트릭스 → `→ references/objective_matrix.md`
+## §5 튜닝
 
-### ③ 캠페인 타입·입찰
-- 학습 적음 (월 <50 conv) → Max Conv·CBO·Advantage+
-- 충분 (월 ≥50) → tCPA
-- 가치 추적 가능 → tROAS / Value Optimization
+- 측정: `references/measurement.md`
+- 소재: `references/creative.md`
+- 튜닝: `references/tuning_playbook.md`
+- 금지 패턴: `references/antipatterns.md`
+- 용어: `references/glossary.md`
 
-### ④ 시그널 세팅
-`→ references/measurement.md`
+## Output Path
 
-### ⑤ 크리에이티브 브리프
-`→ references/creative.md` — 3초훅·UGC·9:16·ABCD·자산개수.
+| 산출물 | 경로 |
+|---|---|
+| 주 산출물 | `mnt/outputs/ads-playbook_{topic}_{YYYY-MM-DD}.md` |
+| 형식 | 플레이북으로, .md로. |
+| 리서치 결과 (해당 시) | `{VAULT}/_skills research/ads-playbook/{YYYY-MM-DD}_{topic}.md` |
 
-### ⑥ 런칭 체크리스트
-`→ references/launch_checklist.md` — 22항목.
+## Reference Index
 
----
+| 파일 | 내용 | 언제 |
+|---|---|---|
+| `references/antipatterns.md` | antipatterns | 해당 단계 진입 시 |
+| `references/creative.md` | creative | 해당 단계 진입 시 |
+| `references/glossary.md` | glossary | 해당 단계 진입 시 |
+| `references/latest_2026q2.md` | latest 2026q2 | 해당 단계 진입 시 |
+| `references/launch_checklist.md` | launch checklist | 해당 단계 진입 시 |
+| `references/measurement.md` | measurement | 해당 단계 진입 시 |
+| `references/objective_app.md` | objective app | 해당 단계 진입 시 |
+| `references/objective_brand.md` | objective brand | 해당 단계 진입 시 |
+| `references/objective_commerce.md` | objective commerce | 해당 단계 진입 시 |
+| `references/objective_lead.md` | objective lead | 해당 단계 진입 시 |
+| `references/objective_matrix.md` | objective matrix | 해당 단계 진입 시 |
+| `references/platform_google.md` | platform google | 해당 단계 진입 시 |
+| `references/platform_meta.md` | platform meta | 해당 단계 진입 시 |
+| `references/platform_naver_kakao.md` | platform naver kakao | 해당 단계 진입 시 |
+| `references/platform_tiktok_asa.md` | platform tiktok asa | 해당 단계 진입 시 |
 
-## §4 M3 운영 흐름 (광고튜닝)
 
-| 작업 | 주기 | 스포크 |
-|------|------|--------|
-| 러닝페이즈 탈출·CPA 모니터 | 일·주 | `→ references/tuning_playbook.md` |
-| 예산 스텝업 | 3~5일 | `→ references/tuning_playbook.md` |
-| 크리에이티브 로테이션 | 2~4주 | `→ references/creative.md` |
-| A/B·Incrementality | 월 1+ | `→ references/tuning_playbook.md` |
-| 주간·월간 리뷰·시즈널 | 정기 | `→ references/launch_checklist.md` |
+## Next Phase
 
----
-
-## §4.5 조건부 로딩 매트릭스
-
-| 질문 맥락 | 로드 1차 | 로드 2차 (필요시) |
-|-----------|----------|------------------|
-| 목적 불명 | `objective_matrix.md` | 해당 objective 파일 1개 |
-| 플랫폼 1개 지정 | 해당 `platform_*.md` 1개 | `measurement.md` |
-| 측정·CAPI·SKAN | `measurement.md` | `glossary.md` |
-| 크리에이티브 | `creative.md` | `antipatterns.md` |
-| 러닝·입찰·튜닝 | `tuning_playbook.md` | `measurement.md` |
-| 런칭 직전 | `launch_checklist.md` | `measurement.md` |
-| 최신 정책 확인 | `latest_2026q2.md` | — |
-
----
-
-## §5 공통 참조
-
-| 주제 | 포인터 |
-|------|--------|
-| 광고용어 사전 130+ | `→ references/glossary.md` |
-| 측정·트래킹 | `→ references/measurement.md` |
-| 안티패턴 24+ | `→ references/antipatterns.md` |
-| 2026년 최신 | `→ references/latest_2026q2.md` |
-
----
-
-## 📄 표준 리포트 템플릿
-
-**M1 진단 또는 M3 운영 완료 후 아래 템플릿으로 출력. 빈칸 그대로 출력 금지.**
-
-### M1 광고 진단 리포트 (Meta/Google 성과 리뷰 구조)
-
-```markdown
-# 광고 진단 리포트: [캠페인명/플랫폼]
-기간: | 작성:
-
-## 핵심 결론 (1문장)
-> [문제 + 근본원인 + 즉시조치 — "XX 플랫폼의 CPA가 YY% 급등한 주원인은 ZZ이며, 즉시 AA 조치 필요"]
-
-## 현황
-| 지표 | 목표 | 실제 | 이전 기간 | 판정 |
-|------|------|------|---------|------|
-| CPA(전환당비용) | | | | 🔴/🟡/🟢 |
-| ROAS(광고수익률) | | | | 🔴/🟡/🟢 |
-| CTR(클릭률) | | | | 🔴/🟡/🟢 |
-| 러닝페이즈 상태 | — | 학습중/완료 | — | — |
-
-## 4축 진단 결과
-| 축 | 상태 | 발견 |
-|----|------|------|
-| 시그널 | ●위험/○중간/-안전 | [구체 내용] |
-| 러닝·입찰 | ●/○/- | [구체 내용] |
-| 크리에이티브 | ●/○/- | [구체 내용] |
-| 타겟·구조 | ●/○/- | [구체 내용] |
-
-## 근본원인
-[4축 진단 결과를 종합해 주원인을 서술. 단순 나열 금지 — 인과관계 설명. 2~3문장.]
-
-## 처방
-| 구분 | 액션 | 기한 | 예상 효과 |
-|------|------|------|----------|
-| 즉시조치 (≤7일) | [구체 행동] | D+7 | [지표 변화 예상] |
-| 구조조치 (≥2주) | [근본 해결] | D+14 | |
-
-## 모니터링
-- 확인 지표: [조치 후 봐야 할 핵심 지표]
-- 주기: [일간/주간]
-- 회복 기준: [이 수치 달성 시 정상 판정]
-```
+본 스킬 작업 후 자연스럽게 이어지는 흐름:
 
-### M2 캠페인 세팅 가이드
+- 후속 작업 → `media-buying`
+- 후속 작업 → `copywriting-skill`
+- 후속 작업 → `brand-campaign`
 
-```markdown
-# 캠페인 세팅 가이드: [광고목적] / [플랫폼]
-작성일: | 집행 예산:
-
-## 목적 확정
-- 광고목적: [10목적 중]
-- KPI(핵심성과지표): / 목표값: / 기간:
-
-## 플랫폼 조합
-| 순위 | 플랫폼 | 이유 | 예산 배분 |
-|------|--------|------|---------|
-| 1순위 | | | xx% |
-| 2순위 | | | xx% |
-
-## 캠페인 구조
-- 캠페인 타입: [Advantage+/PMax/Smart+ 등]
-- 입찰 전략: [Max Conv / tCPA / tROAS] — 선택 이유
-- 예산: 일예산 [N]원 / CBO(캠페인 예산 최적화) Y/N
-
-## 시그널 세팅 체크
-- [ ] CAPI(서버측 전환 API) 구현 여부
-- [ ] Consent Mode v2 적용 여부
-- [ ] 픽셀 중복 제거 완료
-- [ ] 1st party 데이터 업로드 (Customer Match)
-
-## 크리에이티브 브리프
-- 포맷: [9:16 영상 / 정방형 이미지 / 카탈로그]
-- 3초 훅: [첫 3초 핵심 메시지]
-- UGC 포함 여부: Y/N
-- 초기 자산 수: [최소 3~5개]
-
-## 런칭 체크리스트 (22항목 요약)
-- [ ] 픽셀·전환 이벤트 테스트 완료
-- [ ] 러닝페이즈 편집 금지 기간 공유 ([날짜] ~ [날짜])
-- [ ] 예산 스텝업 일정 확정
-- [ ] 브랜드 안전 제외 목록 적용
-```
-
-### M3 월간 성과 리뷰 리포트
-
-```markdown
-# 광고 성과 리뷰: [월/분기]
-기간: | 플랫폼:
-
-## 한줄 요약
-> [이번 기간 핵심 결과 — "전체 ROAS XX%, CPA YY원. [플랫폼]에서 ZZ 이슈 발생/해소"]
-
-## 플랫폼별 성과
-| 플랫폼 | 지출 | 전환 | CPA | ROAS | 전월 대비 |
-|--------|------|------|-----|------|---------|
-| 메타 | | | | | ±xx% |
-| 구글 | | | | | ±xx% |
-
-## 크리에이티브 성과
-| 소재 | CTR | Hook Rate | 전환율 | 판정 |
-|------|-----|----------|--------|------|
-| [소재1] | | | | 유지/교체 |
-
-## 이번 달 학습
-[잘 된 것 + 안 된 것 + 이유 — 서술형 2~3문장. 다음 달 적용할 인사이트 포함.]
-
-## 다음 달 액션
-| 액션 | 근거 | 담당 | 기한 |
-|------|------|------|------|
-| | | | |
-```
-
----
-
-
-## §INV NO_WORK_LABEL (산출물·대화 본질 보호)
-
-| 항목 | 정의 |
-|------|------|
-| RULE | 산출물·대화 = 인간 언어. 작업 라벨 ZERO. (1만 페이지 1단어 = FAIL) |
-| 판정 | "이 단어, 이 대화 밖 사람이 사전 없이 읽을 수 있나?" NO → 작업 라벨 → 금지 |
-| ALLOW | ROAS·CPA·CAPI·tROAS·tCPA·SKAN·PMax·ASA·ASC·UAC·CTR·CVR·CPC·CPM·LTV·CAC·MMP·MMM |
-| CONVERT | 라벨 발견 → 실명·평문 풀어쓰기. 예) "러닝페이즈·시그널·8플랫폼×10목적" → 실제 단계·플랫폼·목적 명 / "Smart+·Advantage+" → 결과만 노출 |
-| SELF_CHECK | 튜닝 처방 출력 직전에서 자체 스캔. 1개라도 발견 = 차단·재작성. paper-engine cascade 경유 시 INV 13 자동 적용 |
-
----
-
-## 🚨 MUST cascade → paper-engine (절대규칙)
-
-**이 스킬의 모든 리포트·산출물 = paper-engine 허브 MUST 경유.** 단독 md/html 출력 = FAIL.
-
-- **진입점:** 모드별 분석 완료 후, 산출물 생성 직전 paper-engine 발동
-- **DEFAULT_RENDER = 순수 마크다운:** `.md` 산출 시 `<div>`·`<span>`·`style=` 등 인라인 HTML **전면 금지**
-- **위반 감지:** md 파일에 `<div style>`·`<span style>` 삽입 = 절대규칙 #8 위반 → 재작성
-
----
-
-## Gotchas
+## Failure Modes (Gotchas)
 
 | 함정 | 대응 |
-|------|------|
-| 용어 주석 누락 | 약어 첫 등장 시 괄호 주석 — `CPA(전환당 비용)` |
-| 목적 없이 플랫폼부터 논의 | §3-①로 되돌아가 광고목적 확정 후 재진입 |
-| 러닝 중 편집 제안 | 러닝상태 먼저 확인 → "편집 대신 신규 ad set" 제안 |
-| PMax·Advantage+ 블랙박스 방치 | 가드레일(브랜드 제외·Audience Signal·예산 캡) 동반 제안 |
-| iOS/앱광고 질문에 SKAN 누락 | 앱 캠페인 = SKAN 4 + MMP 자동 포함 |
-| 한국 디폴트 누락 | 플랫폼 미지정 시 네이버광고·카카오광고 후보 제시 |
-| B2B 리드광고에 LinkedIn 누락 | 링크드인광고 Lead Gen Form + Accelerate 최우선 |
-| 최신 변경 미반영 | 2026-04 만료 시 `→ references/latest_2026q2.md` 업데이트 알림 |
-
----
-
-## Self-Check
-
-```bash
-python3 scripts/validate.py ./ads-playbook/
-```
-
-검증 항목: SKILL.md 크기·필수 섹션·스포크 파일·evals 케이스·version 필드·한국 디폴트 보존.
+|---|---|
+| ROAS만 보고 예산 증액 | CAC, 재구매, 마진을 같이 본다 |
+| 채널을 너무 빨리 늘림 | 한 채널에서 학습량 확보 후 확장 |
+| 소재 피로 무시 | 주 1회 빈도와 CTR 하락을 같이 본다 |
+| ❌ 전환수만 보고 성공 판단 | ✅ 마진, CAC, 재구매 가능성을 같이 확인 |
