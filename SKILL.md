@@ -1,5 +1,6 @@
 ---
 name: ads-playbook
+version: 1.0
 description: |
   온라인 광고 운영 플레이북. 목표·채널·측정·크리에이티브·튜닝을 연결해 캠페인 실행안을 만든다. 트리거: 광고운영, 퍼포먼스광고, ads playbook, ROAS, CAC, 매체믹스, 광고 짜줘, 튜닝해줘, 점검해줘, optimize ads. NOT: 미디어 집행 실무(→media-buying), 카피(→copywriting-skill), 브랜드 캠페인(→brand-campaign).
 ---
